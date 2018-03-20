@@ -1,0 +1,26 @@
+
+<ul class="events">
+  <li *ngFor="let event of events" class="thumbnail">
+    <a routerLink="/detail/{{event.id}}" class="thumb">
+      <img [src]="event.imageUrl" alt="{{event.name}}" />
+    </a>
+    <a routerLink="/detail/{{event.id}}">
+      <h2>{{event.name}}</h2>
+    </a>
+    <p class="eventsdate">{{event.date}}</p>
+    <p>{{event.snippet}}</p>
+    <p>
+      <a href="event.webUrl">{{event.webUrl}}</a>
+    </p>
+  </li>
+</ul>
+
+<div>
+  <label>Add new event:
+    <input #eventName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(eventName.value); eventName.value=''">
+    add
+  </button>
+</div>

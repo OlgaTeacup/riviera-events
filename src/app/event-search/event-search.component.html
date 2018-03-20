@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Event Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let event of events$ | async" >
+      <a routerLink="/detail/{{event.id}}">
+        {{event.name}}
+      </a>
+    </li>
+  </ul>
+</div>
